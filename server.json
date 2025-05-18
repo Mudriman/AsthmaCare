@@ -1,0 +1,47 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "test@example.com",
+      "name": "Test User",
+      "password": "password123",
+      "avatar": 0,
+      "level": 1,
+      "xp": 0,
+      "lastAttack": "2025-05-05T00:00:00Z",
+      "completedTips": [],
+      "achievements": [
+        "first_login"
+      ],
+      "symptoms": [
+        "headache"
+      ],
+      "settings": {
+        "notifications": true,
+        "darkMode": false,
+        "sound": true
+      },
+      "risk": {
+        "value": 70,
+        "factors": [
+          "Вечернее время",
+          "Последние симптомы",
+          "Повышенный уровень пыльцы"
+        ]
+      }
+    }
+  ],
+  "weather": {
+    "temperature": 20,
+    "humidity": 65,
+    "condition": "cloudy",
+    "windSpeed": 3
+  },
+  "pollen": {
+    "level": "moderate",
+    "types": [
+      "grass",
+      "tree"
+    ]
+  }
+}

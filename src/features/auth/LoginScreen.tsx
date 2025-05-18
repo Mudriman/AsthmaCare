@@ -1,27 +1,30 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Lock, User, ArrowRight } from 'lucide-react';
+import { Mail, Lock, ArrowRight } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext';
-const RegisterScreen: React.FC = () => {
+
+import { useAuthStore } from '../../stores/authStore';
+import { useUserDataStore } from '../../stores/userDataStore';
+
+const LoginScreen: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
-  const {
-    register,
-    error,
-    isLoading
-  } = useAuth();
+  const { login, error, isLoading } = useAuthStore();
+  const { fetchUserData } = useUserDataStore();
   const navigate = useNavigate();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await register(email, password, name);
+      await login(email, password);
+      await fetchUserData(useAuthStore.getState().user!.id); // Загружаем данные после логина
       navigate('/');
     } catch (err) {
-      // Ошибка уже обрабатывается в контексте
+      // Ошибка уже в сторе
     }
   };
+
+
   return <div className="flex flex-col min-h-screen bg-[#ECF0F1] p-6">
       <div className="flex-1 flex flex-col items-center justify-center">
         <motion.div className="w-full max-w-md" initial={{
@@ -37,18 +40,9 @@ const RegisterScreen: React.FC = () => {
             ChronCare
           </h1>
           <p className="text-center text-[#7F8C8D] mb-8">
-            Создайте свой аккаунт
+            Войдите в свой аккаунт
           </p>
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-2">
-              <label className="text-sm text-[#2C3E50]" htmlFor="name">
-                Имя
-              </label>
-              <div className="relative">
-                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#95A5A6]" />
-                <input id="name" type="text" value={name} onChange={e => setName(e.target.value)} className="w-full px-10 py-3 bg-white rounded-xl border border-[#E2E8F0] focus:outline-none focus:border-[#3498DB]" placeholder="Ваше имя" required />
-              </div>
-            </div>
             <div className="space-y-2">
               <label className="text-sm text-[#2C3E50]" htmlFor="email">
                 Email
@@ -80,20 +74,20 @@ const RegisterScreen: React.FC = () => {
           }} whileTap={{
             scale: 0.98
           }} disabled={isLoading}>
-              {isLoading ? <span className="animate-pulse">Регистрация...</span> : <>
-                  Зарегистрироваться
+              {isLoading ? <span className="animate-pulse">Вход...</span> : <>
+                  Войти
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </>}
             </motion.button>
           </form>
           <p className="mt-6 text-center text-[#7F8C8D]">
-            Уже есть аккаунт?{' '}
-            <Link to="/login" className="text-[#3498DB] font-medium hover:underline">
-              Войти
+            Нет аккаунта?{' '}
+            <Link to="/register" className="text-[#3498DB] font-medium hover:underline">
+              Зарегистрироваться
             </Link>
           </p>
         </motion.div>
       </div>
     </div>;
 };
-export default RegisterScreen;
+export default LoginScreen;

@@ -1,16 +1,18 @@
 import { BrowserRouter as Router } from 'react-router-dom';
 import { AppProvider } from './contexts/AppContext';
-import { AuthProvider } from './contexts/AuthContext';
 import { AppLayout } from './components/AppLayout';
+import { initializeAuth} from './stores/authStore'; // Импортируем инициализацию
+import { initializeUserData } from './stores/userDataStore';
 
 export function App() {
+  initializeAuth();
+  initializeUserData();
+
   return (
-    <AuthProvider>
-      <AppProvider>
-        <Router>
-          <AppLayout />
-        </Router>
-      </AppProvider>
-    </AuthProvider>
+    <AppProvider>
+      <Router>
+        <AppLayout />
+      </Router>
+    </AppProvider>
   );
 }

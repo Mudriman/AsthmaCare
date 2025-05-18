@@ -2,11 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Bell, Moon, Volume2, HelpCircle, LogOut } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuthStore } from '@/stores/authStore';
 
 const SettingsScreen: React.FC = () => {
 
-  const { logout, user } = useAuth();
+  const { logout, user } =useAuthStore();
   const navigate = useNavigate();
 
   const handleLogout = () => {

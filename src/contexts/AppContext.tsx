@@ -21,10 +21,10 @@ interface AppContextType {
   };
 }
 const defaultUserData: UserData = {
-  name: 'Алексей',
+  name: 'Владимир',
   avatar: 0,
   level: 3,
-  xp: 125,
+  xp: 130,
   lastAttack: null,
   completedTips: [],
   settings: {

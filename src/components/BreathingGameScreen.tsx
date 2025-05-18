@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Heart } from 'lucide-react';
+import { ArrowLeft, Heart, Wind } from 'lucide-react';
 import { Link } from 'react-router-dom';
 const BreathingGameScreen: React.FC = () => {
   const [gameStarted, setGameStarted] = useState(false);

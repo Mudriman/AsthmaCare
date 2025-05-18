@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router-dom';
-import LoginScreen from '@/components/auth/LoginScreen';
-import RegisterScreen from '@/components/auth/RegisterScreen';
-import MainScreen from '@/components/MainScreen';
+import LoginScreen from '@/features/auth/LoginScreen';
+import RegisterScreen from '@/features/auth/RegisterScreen';
+import MainScreen from '@/pages/main-page';
 import TipsScreen from '@/components/TipsScreen';
 import GamesScreen from '@/components/GamesScreen';
 import BreathingGameScreen from '@/components/BreathingGameScreen';
@@ -13,7 +13,7 @@ import FiveWordsGame from '@/components/GamesScreen';
 export interface RouteConfig {
   path: string;
   element: JSX.Element;
-  public?: boolean; // Если true, маршрут доступен без авторизации
+  public?: boolean;
 }
 
 export const routes: RouteConfig[] = [
