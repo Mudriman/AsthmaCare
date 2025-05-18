@@ -11,7 +11,6 @@ export const fixUserData = (data: any): User => {
     level: typeof data.level === 'number' ? data.level : 1,
     xp: typeof data.xp === 'number' ? data.xp : 0,
     lastAttack: data.lastAttack ? new Date(data.lastAttack) : null,
-    completedTips: Array.isArray(data.completedTips) ? data.completedTips : [],
     symptoms: Array.isArray(data.symptoms) ? data.symptoms : [],
     achievements: Array.isArray(data.achievements) ? data.achievements : [],
     settings: {

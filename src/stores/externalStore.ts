@@ -22,7 +22,7 @@ export const useEnvironmentStore = create<EnvironmentState>((set) => ({
     try {
       set({ isLoading: true, error: null });
       const weather = await getWeatherData(location);
-      const fixed = fixWeatherData(weather);
+      const fixed = fixWeatherData(weather); // 🔧 используем фикс
       set({ weather: fixed, isLoading: false });
       localStorage.setItem('weatherData', JSON.stringify(fixed));
     } catch (err) {
@@ -37,7 +37,7 @@ export const useEnvironmentStore = create<EnvironmentState>((set) => ({
     try {
       set({ isLoading: true, error: null });
       const pollen = await getPollenData(location);
-      const fixed = fixPollenData(pollen);
+      const fixed = fixPollenData(pollen); // 🔧 используем фикс
       set({ pollen: fixed, isLoading: false });
       localStorage.setItem('pollenData', JSON.stringify(fixed));
     } catch (err) {

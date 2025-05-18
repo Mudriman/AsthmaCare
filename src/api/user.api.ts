@@ -1,8 +1,8 @@
 import { api } from './axios';
-import { UserData, User } from "@/types/User";
+import { User } from "@/types";
 
 // 📦 Получить пользовательские данные
-export const getUserData = async (userId: string): Promise<UserData> => {
+export const getUserData = async (userId: string): Promise<User> => {
   const res = await api.get<User>(`/users/${userId}`);
   const user = res.data;
   if (!user) throw new Error('Пользователь не найден');
@@ -15,7 +15,6 @@ export const getUserData = async (userId: string): Promise<UserData> => {
     level: user.level,
     xp: user.xp,
     lastAttack: user.lastAttack,
-    completedTips: user.completedTips,
     symptoms: user.symptoms,
     achievements: user.achievements,
     settings: user.settings,
@@ -26,9 +25,9 @@ export const getUserData = async (userId: string): Promise<UserData> => {
 // ✏️ Обновить пользовательские данные
 export const updateUserData = async (
   userId: string,
-  data: Partial<UserData>
-): Promise<Partial<UserData>> => {
-  const res = await api.patch<Partial<UserData>>(`/users/${userId}`, data);
+  data: Partial<User>
+): Promise<Partial<User>> => {
+  const res = await api.patch<Partial<User>>(`/users/${userId}`, data);
   return res.data;
 };
 

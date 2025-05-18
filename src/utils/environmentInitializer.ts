@@ -4,6 +4,9 @@ export const initializeEnvironmentStore = (location: string) => {
   const weatherData = localStorage.getItem('weatherData');
   const pollenData = localStorage.getItem('pollenData');
 
+   useEnvironmentStore.getState().fetchWeather(location);
+   useEnvironmentStore.getState().fetchPollen(location);
+
   if (weatherData) {
     try {
       const parsed = JSON.parse(weatherData);

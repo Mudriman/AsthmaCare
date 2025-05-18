@@ -2,7 +2,7 @@ import { Navigate } from 'react-router-dom';
 import LoginScreen from '@/features/auth/LoginScreen';
 import RegisterScreen from '@/features/auth/RegisterScreen';
 import MainScreen from '@/pages/main-page';
-import TipsScreen from '@/components/TipsScreen';
+import TipsScreen from '@/pages/tip-page';
 import GamesScreen from '@/components/GamesScreen';
 import BreathingGameScreen from '@/components/BreathingGameScreen';
 import ProgressScreen from '@/components/ProgressScreen';

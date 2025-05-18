@@ -17,7 +17,6 @@ export interface User {
   level: number;
   xp: number;
   lastAttack: Date | null;
-  completedTips: string[];
   symptoms: string[];
   achievements: string[];
   settings: UserSettings;

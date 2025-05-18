@@ -9,7 +9,6 @@
       "level": 1,
       "xp": 0,
       "lastAttack": "2025-05-05T00:00:00Z",
-      "completedTips": [],
       "achievements": [
         "first_login"
       ],
@@ -38,10 +37,70 @@
     "windSpeed": 3
   },
   "pollen": {
-    "level": "moderate",
+    "level": "Средний",
     "types": [
       "grass",
       "tree"
     ]
-  }
+  },
+  "tips": [
+    {
+      "id": "tip1",
+      "title": "Держите ингалятор рядом",
+      "description": "Всегда имейте ингалятор при себе, особенно в периоды высокого риска",
+      "icon": "AlertTriangle",
+      "iconColor": "#F44336",
+      "bgColor": "#FFEBEE",
+      "relatedRisks": [
+        "high_pollen",
+        "cold_air"
+      ],
+      "reward": 5
+    },
+    {
+      "id": "tip2",
+      "title": "Избегайте холодного воздуха",
+      "description": "При выходе на улицу в холодную погоду используйте шарф, чтобы прикрыть нос и рот",
+      "icon": "Thermometer",
+      "iconColor": "#4FC3F7",
+      "bgColor": "#E1F5FE",
+      "relatedRisks": [
+        "cold_air"
+      ],
+      "reward": 5
+    },
+    {
+      "id": "tip3",
+      "title": "Следите за качеством воздуха",
+      "description": "Проверяйте индекс качества воздуха перед выходом на улицу",
+      "icon": "Wind",
+      "iconColor": "#4CAF50",
+      "bgColor": "#E8F5E9",
+      "relatedRisks": [
+        "high_pollen",
+        "pollution"
+      ],
+      "reward": 7
+    }
+  ],
+  "userTips": [
+    {
+      "id": "dbb4",
+      "userId": "1",
+      "tipId": "tip3",
+      "completedAt": "2025-05-18T20:33:49.604Z"
+    },
+    {
+      "id": "0429",
+      "userId": "1",
+      "tipId": "tip2",
+      "completedAt": "2025-05-18T20:33:50.134Z"
+    },
+    {
+      "id": "1b6e",
+      "userId": "1",
+      "tipId": "tip1",
+      "completedAt": "2025-05-18T20:33:50.594Z"
+    }
+  ]
 }
